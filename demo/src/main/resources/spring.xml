@@ -4,26 +4,59 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
            http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans.xsd">
+           http://www.springframework.org/schema/beans/spring-beans.xsd" default-init-method="myInit" default-destroy-method="destroy">
+<!--<bean id="parent" class="com.example.demo.Triangle" abstract="true">-->
+<!--&lt;!&ndash;    <property name="pointA" ref="pointA"/>&ndash;&gt;-->
+<!--<property name="pointList">-->
+<!--    <list>-->
+<!--        <ref bean="pointA"/>-->
+<!--    </list>-->
+<!--</property>-->
+<!--</bean>-->
 
+<!--    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-->
     <bean id="triangle" class="com.example.demo.Triangle">
-        <property name="pointA" ref="point1"/>
-        <property name="pointB">
-            <bean id="point2" class="com.example.demo.Point">
-                <property name="x" value="0"/>
-                <property name="y" value="-20"/>
-            </bean>
-        </property>
-        <property name="pointC">
-            <bean id="point3" class="com.example.demo.Point">
-                <property name="x" value="0"/>
-                <property name="y" value="20"/>
-            </bean>
-        </property>
+                        <property name="pointA" ref="pointA"/>
+                        <property name="pointB" ref="pointB"/>
+                        <property name="pointC" ref="pointC"/>
+<!--        <property name="pointList">-->
+<!--            <list merge="true">-->
+<!--                <ref bean="pointB"/>-->
+<!--            </list>-->
+<!--        </property>-->
     </bean>
-<bean id="point1" class="com.example.demo.Point">
-    <property name="x" value="0"/>
-    <property name="y" value="0"/>
-</bean>
+<!--    <bean id="triangle2" class="com.example.demo.Triangle" parent="triangle1">-->
+<!--&lt;!&ndash;        <property name="pointB" ref="pointB"/>&ndash;&gt;-->
+<!--        <property name="pointList">-->
+<!--            <list merge="true">-->
+<!--                <ref bean="pointC"/>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+<!--    <bean id="triangle" class="com.example.demo.Triangle">-->
+<!--                <property name="pointA" ref="pointA"/>-->
+<!--                <property name="pointB" ref="pointB"/>-->
+<!--                <property name="pointC" ref="pointC"/>-->
 
+<!--        &lt;!&ndash;        <property name="pointList">&ndash;&gt;-->
+<!--        &lt;!&ndash;            <list>&ndash;&gt;-->
+<!--        &lt;!&ndash;                <ref bean="point1"/>&ndash;&gt;-->
+<!--        &lt;!&ndash;                <ref bean="point2"/>&ndash;&gt;-->
+<!--        &lt;!&ndash;                <ref bean="point3"/>&ndash;&gt;-->
+<!--        &lt;!&ndash;            </list>&ndash;&gt;-->
+<!--        &lt;!&ndash;        </property>&ndash;&gt;-->
+
+<!--    </bean>-->
+    <bean id="pointA" class="com.example.demo.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+    <bean id="pointB" class="com.example.demo.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="-20"/>
+    </bean>
+    <bean id="pointC" class="com.example.demo.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="20"/>
+    </bean>
 </beans>
